@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* PASSWORD PAGE */
+        .page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        #passwordPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .password-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .password-container h1 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .password-container p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .error-msg {
+            color: red;
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* VIDEO PAGE */
+        #videoPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .video-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .video-container h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #999;
+        }
+
+        .video-text {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .btn-journey {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* SLIDESHOW PAGE */
+        #slideshowPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .slide {
+            display: none;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 700px;
+            animation: fadeIn 0.6s ease-out;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide h2 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .slide p {
+            color: #d946a0;
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .slide-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn-small {
+            padding: 10px 25px;
+            font-size: 14px;
+        }
+
+        .slide-indicator {
+            color: #999;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* BIRTHDAY PAGE */
+        #birthdayPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px 20px;
+        }
+
+        .birthday-container {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .birthday-container h1 {
+            color: #f5576c;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .birthday-container p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f5576c;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .password-container,
+            .video-container,
+            .slide,
+            .birthday-container {
+                padding: 30px 20px;
+            }
+
+            .slide h2 {
+                font-size: 24px;
+            }
+
+            .birthday-container h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PASSWORD PAGE -->
+    <div id="passwordPage" class="page active">
+        <div class="password-container">
+            <h1>🔐 Welcome</h1>
+            <p>Enter the password to enter our love story</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password...">
+            <button class="btn" onclick="checkPassword()">Enter</button>
+            <div class="error-msg" id="errorMsg">Wrong password! Try again.</div>
+        </div>
+    </div>
+
+    <!-- VIDEO PAGE -->
+    <div id="videoPage" class="page">
+        <div class="video-container">
+            <h2>💕 Our Moment</h2>
+            <div class="video-placeholder">
+                [Your Video Goes Here]
+            </div>
+            <p class="video-text">This is where you can add your special video by replacing the placeholder with an embedded video link.</p>
+            <button class="btn btn-journey" onclick="goToSlideshow()">Go to the Journey ➜</button>
+        </div>
+    </div>
+
+    <!-- SLIDESHOW PAGE -->
+    <div id="slideshowPage" class="page">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <h2>When We Met</h2>
+            <p>The moment I saw you, I knew my heart had found its home. You made every ordinary moment feel extraordinary.</p>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+            </div>
+            <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">5</span></div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h2>Your Smile</h2>
+            <p>Every time you smile, my heart does a thousand flips. You have the most beautiful soul, and I'm grateful for every moment with you.</p>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+            </div>
+            <div class="slide-indicator"><span id="currentSlide">2</span> / <span id="totalSlides">5</span></div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h2>Our Journey Together</h2>
+            <p>With you, I found not just love but my best friend, my greatest adventure, and my forever home. Thank you for being my everything.</p>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+            </div>
+            <div class="slide-indicator"><span id="currentSlide">3</span> / <span id="totalSlides">5</span></div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h2>Forever With You</h2>
+            <p>You complete me in ways I never thought possible. With you, I feel safe, loved, and cherished. Our love is my greatest blessing.</p>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+            </div>
+            <div class="slide-indicator"><span id="currentSlide">4</span> / <span id="totalSlides">5</span></div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide">
+            <h2>My Promise to You</h2>
+            <p>I promise to love you through every season, to hold your hand through every storm, and to cherish you every single day of our lives together.</p>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="goToBirthday()">Happy Birthday ✨</button>
+            </div>
+            <div class="slide-indicator"><span id="currentSlide">5</span> / <span id="totalSlides">5</span></div>
+        </div>
+    </div>
+
+    <!-- BIRTHDAY PAGE -->
+    <div id="birthdayPage" class="page">
+        <div class="birthday-container">
+            <h1>🎉 Happy Birthday! 🎂</h1>
+            <p>To the most amazing person in my life,</p>
+            <p>Today is your special day, and I want you to know how much you mean to me. You bring joy, love, and light into my world every single day.</p>
+            <p>May this year bring you endless happiness, beautiful memories, and all the love your heart deserves.</p>
+            <p style="font-weight: bold; color: #f5576c; font-size: 22px; margin-top: 30px;">With all my love, forever yours ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        // PASSWORD
+        const correctPassword = "2026"; // CHANGE THIS to your password!
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (input === correctPassword) {
+                errorMsg.style.display = 'none';
+                goToVideo();
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // PAGE NAVIGATION
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function goToVideo() {
+            showPage('videoPage');
+        }
+
+        function goToSlideshow() {
+            showPage('slideshowPage');
+            updateSlideIndicators();
+        }
+
+        function goToBirthday() {
+            showPage('birthdayPage');
+            createConfetti();
+        }
+
+        // SLIDESHOW
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+            updateSlideIndicators();
+        }
+
+        function previousSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+            updateSlideIndicators();
+        }
+
+        function updateSlideIndicators() {
+            const indicators = document.querySelectorAll('#currentSlide');
+            indicators.forEach(indicator => {
+                indicator.textContent = currentSlideIndex + 1;
+            });
+        }
+
+        // CONFETTI ANIMATION
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = ['#f5576c', '#f093fb', '#667eea', '#ffd700'][Math.floor(Math.random() * 4)];
+                confetti.style.animation = `fall ${2 + Math.random() * 1}s linear`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
