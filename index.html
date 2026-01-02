@@ -738,10 +738,7 @@
             currentTopic = topicIndex;
             currentTopicSlideIndex = 0;
             showPage('topicSlideshowPage');
-
-            const topicData = topics[topicIndex];
-            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
-            showTopicSlide(slideIndex);
+            showTopicSlide();
             updateTopicIndicators();
 
             document.querySelectorAll('.menu-button').forEach((btn, idx) => {
@@ -758,39 +755,34 @@
             createConfetti();
         }
 
-        function showTopicSlide(index) {
+        // تظهر فقط السلايد الحالية للتوبيك الحالي
+        function showTopicSlide() {
             const allSlides = document.querySelectorAll('.topic-slide');
             const topicData = topics[currentTopic];
 
             // إخفاء كل السلايدات
             allSlides.forEach(slide => {
                 slide.classList.remove('active');
-                slide.style.display = 'none';
             });
 
-            // إظهار سلايدات التوبيك الحالي فقط
-            for (let i = 0; i < topicData.slides; i++) {
-                const slideEl = allSlides[topicData.startIndex + i];
-                slideEl.style.display = 'flex';
-            }
+            // حساب اندكس السلايد الحالية داخل كل السلايدات
+            const currentSlideIndex = topicData.startIndex + currentTopicSlideIndex;
 
-            // تفعيل السلايد المطلوبة
-            allSlides[index].classList.add('active');
+            // تفعيل السلايد الحالية
+            allSlides[currentSlideIndex].classList.add('active');
         }
 
         function nextTopicSlide() {
             const topicData = topics[currentTopic];
             currentTopicSlideIndex = (currentTopicSlideIndex + 1) % topicData.slides;
-            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
-            showTopicSlide(slideIndex);
+            showTopicSlide();
             updateTopicIndicators();
         }
 
         function prevTopicSlide() {
             const topicData = topics[currentTopic];
             currentTopicSlideIndex = (currentTopicSlideIndex - 1 + topicData.slides) % topicData.slides;
-            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
-            showTopicSlide(slideIndex);
+            showTopicSlide();
             updateTopicIndicators();
         }
 
