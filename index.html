@@ -20,7 +20,6 @@
             align-items: center;
         }
 
-        /* PAGES */
         .page {
             display: none;
             width: 100%;
@@ -108,6 +107,7 @@
             color: red;
             margin-top: 15px;
             display: none;
+            font-size: 14px;
         }
 
         /* VIDEO PAGE */
@@ -121,27 +121,26 @@
 
         .video-container {
             background: white;
-            padding: 40px;
+            padding: 40px 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
+            width: 100%;
             animation: slideUp 0.6s ease-out;
-        }
-
-        .video-container h2 {
-            color: #667eea;
-            margin-bottom: 30px;
-            font-size: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .video-placeholder {
             width: 100%;
             max-width: 600px;
             background: #f0f0f0;
-            border-radius: 10px;
+            border-radius: 15px;
             margin: 0 auto 30px auto;
             padding: 10px;
+            overflow: hidden;
         }
 
         .video-placeholder video {
@@ -160,10 +159,16 @@
 
         .btn-journey {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            transition: all 0.3s ease;
         }
 
-        /* SLIDESHOW PAGE */
-        #slideshowPage {
+        .btn-journey:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+        }
+
+        /* JOURNEY MENU PAGE */
+        #journeyMenuPage {
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -171,7 +176,63 @@
             padding: 40px 20px;
         }
 
-        .slide {
+        .journey-menu-container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .journey-menu-container h1 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 36px;
+        }
+
+        .journey-menu-container p {
+            color: #d946a0;
+            margin-bottom: 40px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .menu-button.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* TOPIC SLIDESHOW PAGE */
+        #topicSlideshowPage {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .topic-slide {
             display: none;
             background: white;
             padding: 60px 40px;
@@ -180,51 +241,100 @@
             text-align: center;
             max-width: 700px;
             animation: fadeIn 0.6s ease-out;
-            min-height: 400px;
+            min-height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .slide.active {
+        .topic-slide.active {
             display: flex;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
-            to   { opacity: 1; }
+            to { opacity: 1; }
         }
 
-        .slide h2 {
+        .topic-slide h2 {
             color: #667eea;
             font-size: 32px;
             margin-bottom: 20px;
         }
 
-        .slide p {
-            color: #d946a0;
-            font-size: 20px;
-            font-style: italic;
+        .topic-slide p {
+            color: #666;
+            font-size: 18px;
             line-height: 1.8;
             margin-bottom: 30px;
         }
 
-        .slide-controls {
+        .topic-slide-image {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8f0 100%);
+            border-radius: 15px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-slide-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .topic-slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+            display: block;
+            background: #f0f0f0;
+        }
+
+        .topic-controls {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .btn-small {
             padding: 10px 25px;
             font-size: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
         }
 
-        .slide-indicator {
+        .btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.3);
+        }
+
+        .topic-indicator {
             color: #999;
             margin-top: 20px;
             font-size: 14px;
+            font-weight: 500;
         }
 
         /* BIRTHDAY PAGE */
@@ -259,28 +369,85 @@
             margin-bottom: 20px;
         }
 
+        .birthday-container p:last-of-type {
+            font-size: 20px;
+            color: #f5576c;
+            margin-top: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         .confetti {
             position: fixed;
             width: 10px;
             height: 10px;
             background: #f5576c;
             pointer-events: none;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(245, 87, 108, 0.6);
         }
 
         @media (max-width: 768px) {
             .password-container,
             .video-container,
-            .slide,
+            .journey-menu-container,
+            .topic-slide,
             .birthday-container {
                 padding: 30px 20px;
             }
 
-            .slide h2 {
+            .password-container {
+                max-width: 90%;
+            }
+
+            .video-container {
+                max-width: 95%;
+            }
+
+            .video-container h2 {
                 font-size: 24px;
+            }
+
+            .video-wrapper {
+                height: 200px;
+            }
+
+            .topic-slide {
+                padding: 40px 20px;
+            }
+
+            .topic-slide h2 {
+                font-size: 24px;
+            }
+
+            .btn-small {
+                padding: 8px 20px;
+                font-size: 12px;
+            }
+
+            .birthday-container {
+                max-width: 95%;
             }
 
             .birthday-container h1 {
                 font-size: 36px;
+            }
+
+            .birthday-container p {
+                font-size: 16px;
+            }
+
+            .menu-button {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+
+            .topic-controls {
+                gap: 10px;
             }
         }
     </style>
@@ -300,49 +467,368 @@
     <!-- VIDEO PAGE -->
     <div id="videoPage" class="page">
         <div class="video-container">
-            <h2>💕 Our Moment</h2>
-
+            <h2>💕 Our Special Moment</h2>
             <div class="video-placeholder">
                 <video id="ourVideo" controls autoplay playsinline>
                     <source src="ourvideo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-            <p class="video-text">
-                This is where you can add your special video by replacing the placeholder with an embedded video link.
-            </p>
-
-            <button class="btn btn-journey" onclick="goToSlideshow()">Go to the Journey ➜</button>
+            <p class="video-text">Watch our beautiful memory together </p>
+            <button class="btn btn-journey" onclick="goToJourney()">Go to Our Journey ➜</button>
         </div>
     </div>
 
-    <!-- SLIDESHOW PAGE -->
-    <div id="slideshowPage" class="page">
-        <!-- Topics Menu -->
-        <div class="slide active" id="topicsSlide">
-            <h2>Our Journey</h2>
+    <!-- JOURNEY MENU PAGE -->
+    <div id="journeyMenuPage" class="page">
+        <div class="journey-menu-container">
+            <h1>💕 Our Journey</h1>
             <p>Select a moment to relive it.</p>
+            <button class="menu-button" onclick="startTopic(0)"> Our First Date</button>
+            <button class="menu-button" onclick="startTopic(1)"> Late Night Drive</button>
+            <button class="menu-button" onclick="startTopic(2)"> Your Support</button>
+            <button class="menu-button" onclick="startTopic(3)"> Sushi Night</button>
+            <button class="menu-button" onclick="startTopic(4)"> Your Smile</button>
+        </div>
+    </div>
 
-            <div style="display:flex; flex-direction:column; gap:15px; margin-top:25px;">
-                <button class="btn btn-small" onclick="openTopic('firstDate')">1. Our First Date</button>
-                <button class="btn btn-small" onclick="openTopic('lateNightDrive')">2. Late Night Drive</button>
-                <button class="btn btn-small" onclick="openTopic('yourSupport')">3. Your Support</button>
-                <button class="btn btn-small" onclick="openTopic('sushiNight')">4. Sushi Night</button>
-                <button class="btn btn-small" onclick="openTopic('yourSmile')">5. Your Smile</button>
+    <!-- TOPIC SLIDESHOW PAGE -->
+    <div id="topicSlideshowPage" class="page">
+        <!-- Our First Date Topic -->
+        <div class="topic-slide active">
+            <h2>❤️ Our First Date</h2>
+            <p>oct 9, 2025</p>
+            <p>هو تمام مش اول ديت اول ديت, بس اول ديت بعد كتب كتابنا عشان هيك خلص تم الاعتماد, اكلنا,لفينا بالسيارة وكان من احلى ايام حياتي </p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
             </div>
-
-            <div class="slide-indicator">
-                <span>Topics</span>
-            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
         </div>
 
-        <!-- Our First Date - Text -->
-        <div class="slide topic-firstDate">
-            <h2>💕 Our First Date</h2>
-            <p style="font-size:18px; margin:10px 0;">February 2, 2023</p>
-            <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
+        <div class="topic-slide">
+            <h2>❤️ Our First Date</h2>
+            <div class="topic-slide-image">
+                <video width="100%" height="100%" autoplay playsinline controls>
+                    <source src="first.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p>فقرتنا المفضلة اللف بالسيارة ونغني سوا</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
+        </div>
 
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
-                <button class="btn btn-small" onclick="
+        <div class="topic-slide">
+            <h2>❤️ Our First Date</h2>
+            <div class="topic-slide-image">
+                <img src="first1.jpeg" alt="Our first date photo">
+            </div>
+            <p>!كوكيز وغروب وانت </p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
+        </div>
+
+        <!-- Late Night Drive Topic -->
+        <div class="topic-slide">
+            <h2>🌙 Late Night Drive</h2>
+            <p>Our Special Moments</p>
+            <p>Those endless nights driving together, talking about dreams and futures. Your hand in mine made every mile feel like home.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>🌙 Late Night Drive</h2>
+            <p>Under the Stars</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>The world felt smaller when we were together.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>🌙 Late Night Drive</h2>
+            <p>Memories Made</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>Every drive was an adventure with you by my side.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
+        </div>
+
+        <!-- Your Support Topic -->
+        <div class="topic-slide">
+            <h2>💪 Your Support</h2>
+            <p>My Greatest Strength</p>
+            <p>Through every storm, you stood by me. Your belief in me when I doubted myself gave me the courage to face anything.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>💪 Your Support</h2>
+            <p>You Were There</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>In my darkest moments, you were my light.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>💪 Your Support</h2>
+            <p>Forever Grateful</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>Thank you for being my rock, my strength, my everything.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
+        </div>
+
+        <!-- Sushi Night Topic -->
+        <div class="topic-slide">
+            <h2>🍣 Sushi Night</h2>
+            <p>Our Favorite Nights</p>
+            <p>Simple moments made extraordinary with you. Those nights laughing over sushi, sharing stories and dreams, are treasured forever.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>🍣 Sushi Night</h2>
+            <p>Good Food, Better Company</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>Your laugh is my favorite sound in the world.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>🍣 Sushi Night</h2>
+            <p>These Are My Favorite Memories</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>With you, every moment feels like a celebration.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="backToMenu()">Back to Menu</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
+        </div>
+
+        <!-- Your Smile Topic -->
+        <div class="topic-slide">
+            <h2>😊 Your Smile</h2>
+            <p>My Greatest Joy</p>
+            <p>Your smile lights up my entire world. Every time you smile, my heart melts and I fall in love with you all over again.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small btn-back" onclick="backToMenu()">← Back</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">1</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>😊 Your Smile</h2>
+            <p>Beauty Beyond Words</p>
+            <div class="topic-slide-image">[Your Video or Memory]</div>
+            <p>You are the most beautiful person inside and out.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">2</span> / 3</div>
+        </div>
+
+        <div class="topic-slide">
+            <h2>😊 Your Smile</h2>
+            <p>Forever Mine</p>
+            <div class="topic-slide-image">[Your Photo Here]</div>
+            <p>I promise to make you smile for the rest of our lives.</p>
+            <div class="topic-controls">
+                <button class="btn btn-small" onclick="prevTopicSlide()">← Previous</button>
+                <button class="btn btn-small btn-back" onclick="goToBirthday()">Happy Birthday 🎉</button>
+            </div>
+            <div class="topic-indicator"><span id="topicCurrentSlide">3</span> / 3</div>
+        </div>
+    </div>
+
+    <!-- BIRTHDAY PAGE -->
+    <div id="birthdayPage" class="page">
+        <div class="birthday-container">
+            <h1>🎉 Happy Birthday! 🎂</h1>
+            <p>To the most amazing person in my life,</p>
+            <p>Today is your special day, and I want you to know how much you mean to me. You bring joy, love, and light into my world every single day.</p>
+            <p>May this year bring you endless happiness, beautiful memories, and all the love your heart deserves.</p>
+            <p style="font-weight: bold; color: #f5576c; font-size: 22px; margin-top: 30px;">With all my love, forever yours ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "21012004";
+        let currentTopic = 0;
+        let currentTopicSlideIndex = 0;
+
+        // ترتيب السلايدات لكل توبيك
+        const topics = [
+            { name: 'Our First Date', slides: 3, startIndex: 0 },
+            { name: 'Late Night Drive', slides: 3, startIndex: 3 },
+            { name: 'Your Support', slides: 3, startIndex: 6 },
+            { name: 'Sushi Night', slides: 3, startIndex: 9 },
+            { name: 'Your Smile', slides: 3, startIndex: 12 }
+        ];
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (input === correctPassword) {
+                errorMsg.style.display = 'none';
+                showPage('videoPage');
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function goToJourney() {
+            showPage('journeyMenuPage');
+        }
+
+        function startTopic(topicIndex) {
+            currentTopic = topicIndex;
+            currentTopicSlideIndex = 0;
+            showPage('topicSlideshowPage');
+
+            const topicData = topics[topicIndex];
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
+
+            document.querySelectorAll('.menu-button').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === topicIndex);
+            });
+        }
+
+        function backToMenu() {
+            showPage('journeyMenuPage');
+        }
+
+        function goToBirthday() {
+            showPage('birthdayPage');
+            createConfetti();
+        }
+
+        // تعديلات مهمة هنا: نظهر فقط سلايدات التوبيك الحالي
+        function showTopicSlide(index) {
+            const allSlides = document.querySelectorAll('.topic-slide');
+            const topicData = topics[currentTopic];
+
+            // إخفاء كل السلايدات
+            allSlides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.display = 'none';
+            });
+
+            // إظهار فقط سلايدات التوبيك المختار
+            for (let i = 0; i < topicData.slides; i++) {
+                const slideEl = allSlides[topicData.startIndex + i];
+                slideEl.style.display = 'flex';
+            }
+
+            // تفعيل السلايد الحالية
+            allSlides[index].classList.add('active');
+        }
+
+        function nextTopicSlide() {
+            const topicData = topics[currentTopic];
+            currentTopicSlideIndex = (currentTopicSlideIndex + 1) % topicData.slides;
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
+        }
+
+        function prevTopicSlide() {
+            const topicData = topics[currentTopic];
+            currentTopicSlideIndex = (currentTopicSlideIndex - 1 + topicData.slides) % topicData.slides;
+            const slideIndex = topicData.startIndex + currentTopicSlideIndex;
+            showTopicSlide(slideIndex);
+            updateTopicIndicators();
+        }
+
+        function updateTopicIndicators() {
+            const indicators = document.querySelectorAll('#topicCurrentSlide');
+            indicators.forEach(indicator => {
+                indicator.textContent = currentTopicSlideIndex + 1;
+            });
+        }
+
+        function createConfetti() {
+            const colors = ['#f5576c', '#f093fb', '#667eea', '#ffd700', '#ff69b4', '#00d4ff'];
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `fall ${2 + Math.random() * 2}s linear forwards`;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 4500);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
