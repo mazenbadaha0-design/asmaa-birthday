@@ -324,17 +324,44 @@
     </div>
 
     <!-- SLIDESHOW PAGE -->
+    <!-- Slide 1 -->
     <div id="slideshowPage" class="page">
-        <!-- Slide 1 -->
-        <div class="slide active">
-            <h2>When We Met</h2>
-            <p>The moment I saw you, I knew my heart had found its home. You made every ordinary moment feel extraordinary.</p>
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-            </div>
-            <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">5</span></div>
-        </div>
+        <!-- Slide 1: First Date - Text -->
+<div class="slide active">
+    <h2>💕 Our First Date</h2>
+    <p style="font-size: 18px; margin: 20px 0;">February 2, 2023</p>
+    <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
+    <div class="slide-controls">
+        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+    </div>
+    <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">15</span></div>
+</div>
+
+<!-- Slide 2: First Date - Video -->
+<div class="slide">
+    <h2>💕 Our First Date - Video</h2>
+    <video width="100%" controls style="border-radius: 10px; margin: 20px 0;">
+        <source src="date1_video.mp4" type="video/mp4">
+    </video>
+    <div class="slide-controls">
+        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+    </div>
+    <div class="slide-indicator"><span id="currentSlide">2</span> / <span id="totalSlides">15</span></div>
+</div>
+
+<!-- Slide 3: First Date - Photo -->
+<div class="slide">
+    <h2>💕 Our First Date - Memory</h2>
+    <img src="date1_photo.jpg" alt="Our first date" style="width: 100%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
+    <div class="slide-controls">
+        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
+        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
+    </div>
+    <div class="slide-indicator"><span id="currentSlide">3</span> / <span id="totalSlides">15</span></div>
+</div>
+
 
         <!-- Slide 2 -->
         <div class="slide">
