@@ -509,7 +509,7 @@
         <div class="topic-slide">
             <h2>❤️ Our First Date</h2>
             <div class="topic-slide-image">
-                <video width="100%" height="100%" autoplay playsinline controls>
+                <video width="100%" height="100%" playsinline controls>
                     <source src="first.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -550,7 +550,7 @@
         <div class="topic-slide">
             <h2>🌙 Late Night Events</h2>
              <div class="topic-slide-image">
-                <video width="100%" height="100%" autoplay playsinline controls>
+                <video width="100%" height="100%" playsinline controls>
                     <source src="2nd.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -590,7 +590,7 @@
         <div class="topic-slide">
             <h2>💪 Your Support</h2>
              <div class="topic-slide-image">
-                <video width="100%" height="100%" autoplay playsinline controls>
+                <video width="100%" height="100%" playsinline controls>
                     <source src="3rd.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -631,7 +631,7 @@
         <div class="topic-slide">
             <h2>🔗Matching Vibes</h2>
             <div class="topic-slide-image">
-                <video width="100%" height="100%" autoplay playsinline controls>
+                <video width="100%" height="100%" playsinline controls>
                     <source src="4th.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -671,7 +671,7 @@
         <div class="topic-slide">
             <h2>😊 Your Smile</h2>
              <div class="topic-slide-image">
-                <video width="100%" height="100%" controls>
+                <video width="100%" height="100%" controls playsinline>
                     <source src="5th.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -742,14 +742,13 @@
             }
         });
 
-        // دالة لإيقاف كل الفيديوهات في الصفحة
+        // إيقاف كل الفيديوهات في الصفحة
         function stopAllVideos() {
             const videos = document.querySelectorAll('video');
             videos.forEach(v => v.pause());
         }
 
         function showPage(pageId) {
-            // أوقف كل الفيديوهات قبل التنقّل
             stopAllVideos();
 
             document.querySelectorAll('.page').forEach(page => {
@@ -758,7 +757,6 @@
             const pageEl = document.getElementById(pageId);
             pageEl.classList.add('active');
 
-            // لو رجعنا لصفحة الفيديو الرئيسية شغّل فيديو ourVideo
             if (pageId === 'videoPage') {
                 const mainVideo = document.getElementById('ourVideo');
                 if (mainVideo) mainVideo.play();
@@ -793,9 +791,15 @@
             createConfetti();
         }
 
+        // تشغيل الفيديو فقط في السلايد الظاهرة
         function showTopicSlide(index) {
             const allSlides = document.querySelectorAll('.topic-slide');
-            const topicData = topics[currentTopic];
+
+            const allVideos = document.querySelectorAll('.topic-slide video');
+            allVideos.forEach(v => {
+                v.pause();
+                v.currentTime = 0;
+            });
 
             allSlides.forEach(slide => {
                 slide.classList.remove('active');
@@ -806,6 +810,14 @@
             if (slideEl) {
                 slideEl.style.display = 'flex';
                 slideEl.classList.add('active');
+
+                const vid = slideEl.querySelector('video');
+                if (vid) {
+                    vid.play().catch(() => {
+                        vid.muted = true;
+                        vid.play();
+                    });
+                }
             }
         }
 
