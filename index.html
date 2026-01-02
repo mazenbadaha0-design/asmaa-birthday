@@ -324,88 +324,63 @@
     </div>
 
     <!-- SLIDESHOW PAGE -->
-    <!-- Slide 1 -->
-    <div id="slideshowPage" class="page">
-        <!-- Slide 1: First Date - Text -->
-<div class="slide active">
-    <h2>💕 Our First Date</h2>
-    <p style="font-size: 18px; margin: 20px 0;">February 2, 2023</p>
-    <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
-    <div class="slide-controls">
-        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-    </div>
-    <div class="slide-indicator"><span id="currentSlide">1</span> / <span id="totalSlides">15</span></div>
+    <!-- Topics Menu -->
+<div class="slide active" id="topicsSlide">
+  <h2>Our Journey</h2>
+  <p>Select a moment to relive it.</p>
+
+  <div style="display:flex; flex-direction:column; gap:15px; margin-top:25px;">
+    <button class="btn btn-small" onclick="openTopic('firstDate')">1. Our First Date</button>
+    <button class="btn btn-small" onclick="openTopic('lateNightDrive')">2. Late Night Drive</button>
+    <button class="btn btn-small" onclick="openTopic('yourSupport')">3. Your Support</button>
+    <button class="btn btn-small" onclick="openTopic('sushiNight')">4. Sushi Night</button>
+    <button class="btn btn-small" onclick="openTopic('yourSmile')">5. Your Smile</button>
+  </div>
+
+  <div class="slide-indicator">
+    <span>Topics</span>
+  </div>
 </div>
 
-<!-- Slide 2: First Date - Video -->
-<div class="slide">
-    <h2>💕 Our First Date - Video</h2>
-    <video width="100%" controls style="border-radius: 10px; margin: 20px 0;">
-        <source src="date1_video.mp4" type="video/mp4">
-    </video>
-    <div class="slide-controls">
-        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-    </div>
-    <div class="slide-indicator"><span id="currentSlide">2</span> / <span id="totalSlides">15</span></div>
+<!-- Our First Date - Text -->
+<div class="slide topic-firstDate">
+  <h2>💕 Our First Date</h2>
+  <p style="font-size:18px; margin:10px 0;">February 2, 2023</p>
+  <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
+
+  <div class="slide-controls">
+    <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+    <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+  </div>
+  <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
 </div>
 
-<!-- Slide 3: First Date - Photo -->
-<div class="slide">
-    <h2>💕 Our First Date - Memory</h2>
-    <img src="date1_photo.jpg" alt="Our first date" style="width: 100%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
-    <div class="slide-controls">
-        <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-        <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-    </div>
-    <div class="slide-indicator"><span id="currentSlide">3</span> / <span id="totalSlides">15</span></div>
+<!-- Our First Date - Video -->
+<div class="slide topic-firstDate">
+  <h2>💕 Our First Date – Video</h2>
+  <video width="100%" controls style="border-radius:10px; margin:20px 0;">
+    <source src="firstDate.mp4" type="video/mp4">
+  </video>
+
+  <div class="slide-controls">
+    <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+    <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
+  </div>
+  <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
 </div>
 
+<!-- Our First Date - Photo -->
+<div class="slide topic-firstDate">
+  <h2>💕 Our First Date – Memory</h2>
+  <img src="firstDate.jpg" alt="Our first date" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
 
-        <!-- Slide 2 -->
-        <div class="slide">
-            <h2>Your Smile</h2>
-            <p>Every time you smile, my heart does a thousand flips. You have the most beautiful soul, and I'm grateful for every moment with you.</p>
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-            </div>
-            <div class="slide-indicator"><span id="currentSlide">2</span> / <span id="totalSlides">5</span></div>
-        </div>
+  <div class="slide-controls">
+    <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
+    <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
+  </div>
+  <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
+</div>
 
-        <!-- Slide 3 -->
-        <div class="slide">
-            <h2>Our Journey Together</h2>
-            <p>With you, I found not just love but my best friend, my greatest adventure, and my forever home. Thank you for being my everything.</p>
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-            </div>
-            <div class="slide-indicator"><span id="currentSlide">3</span> / <span id="totalSlides">5</span></div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="slide">
-            <h2>Forever With You</h2>
-            <p>You complete me in ways I never thought possible. With you, I feel safe, loved, and cherished. Our love is my greatest blessing.</p>
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="nextSlide()">Next →</button>
-            </div>
-            <div class="slide-indicator"><span id="currentSlide">4</span> / <span id="totalSlides">5</span></div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="slide">
-            <h2>My Promise to You</h2>
-            <p>I promise to love you through every season, to hold your hand through every storm, and to cherish you every single day of our lives together.</p>
-            <div class="slide-controls">
-                <button class="btn btn-small" onclick="previousSlide()">← Previous</button>
-                <button class="btn btn-small" onclick="goToBirthday()">Happy Birthday ✨</button>
-            </div>
-            <div class="slide-indicator"><span id="currentSlide">5</span> / <span id="totalSlides">5</span></div>
-        </div>
     </div>
 
     <!-- BIRTHDAY PAGE -->
@@ -465,48 +440,88 @@
             createConfetti();
         }
 
-        // SLIDESHOW
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
+      // SLIDESHOW
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide');
 
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
 
-        function nextSlide() {
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-            showSlide(currentSlideIndex);
-            updateSlideIndicators();
-        }
+function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+    updateSlideIndicators();
+}
 
-        function previousSlide() {
-            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-            showSlide(currentSlideIndex);
-            updateSlideIndicators();
-        }
+function previousSlide() {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(currentSlideIndex);
+    updateSlideIndicators();
+}
 
-        function updateSlideIndicators() {
-            const indicators = document.querySelectorAll('#currentSlide');
-            indicators.forEach(indicator => {
-                indicator.textContent = currentSlideIndex + 1;
-            });
-        }
+function updateSlideIndicators() {
+    const indicators = document.querySelectorAll('#currentSlide');
+    indicators.forEach(indicator => {
+        indicator.textContent = currentSlideIndex + 1;
+    });
+}
 
-        // CONFETTI ANIMATION
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = '-10px';
-                confetti.style.background = ['#f5576c', '#f093fb', '#667eea', '#ffd700'][Math.floor(Math.random() * 4)];
-                confetti.style.animation = `fall ${2 + Math.random() * 1}s linear`;
-                document.body.appendChild(confetti);
+// TOPIC SUB-SLIDES
+let currentTopic = null;
+let currentTopicIndex = 0;
 
-                setTimeout(() => confetti.remove(), 3000);
-            }
-        }
+function openTopic(topicName) {
+    currentTopic = topicName;
+    currentTopicIndex = 0;
+
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    const topicSlides = document.querySelectorAll('.topic-' + topicName);
+    if (topicSlides.length > 0) {
+        topicSlides[0].classList.add('active');
+    }
+}
+
+function backToTopics() {
+    slides.forEach(slide => slide.classList.remove('active'));
+    document.getElementById('topicsSlide').classList.add('active');
+    currentTopic = null;
+}
+
+function showTopicSlide() {
+    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
+    topicSlides.forEach(slide => slide.classList.remove('active'));
+    topicSlides[currentTopicIndex].classList.add('active');
+}
+
+function nextTopicSlide() {
+    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
+    currentTopicIndex = Math.min(currentTopicIndex + 1, topicSlides.length - 1);
+    showTopicSlide();
+}
+
+function previousTopicSlide() {
+    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
+    currentTopicIndex = Math.max(currentTopicIndex - 1, 0);
+    showTopicSlide();
+}
+
+// CONFETTI ANIMATION
+function createConfetti() {
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = '-10px';
+        confetti.style.background = ['#f5576c', '#f093fb', '#667eea', '#ffd700'][Math.floor(Math.random() * 4)];
+        confetti.style.animation = `fall ${2 + Math.random() * 1}s linear`;
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+    }
+}
 
         const style = document.createElement('style');
         style.textContent = `
