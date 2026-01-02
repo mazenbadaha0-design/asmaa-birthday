@@ -696,7 +696,6 @@
         let currentTopic = 0;
         let currentTopicSlideIndex = 0;
 
-        // ترتيب السلايدات لكل توبيك
         const topics = [
             { name: 'Our First Date', slides: 3, startIndex: 0 },
             { name: 'Late Night Drive', slides: 3, startIndex: 3 },
@@ -759,7 +758,6 @@
             createConfetti();
         }
 
-        // تعديلات مهمة هنا: نظهر فقط سلايدات التوبيك الحالي
         function showTopicSlide(index) {
             const allSlides = document.querySelectorAll('.topic-slide');
             const topicData = topics[currentTopic];
@@ -770,13 +768,13 @@
                 slide.style.display = 'none';
             });
 
-            // إظهار فقط سلايدات التوبيك المختار
+            // إظهار سلايدات التوبيك الحالي فقط
             for (let i = 0; i < topicData.slides; i++) {
                 const slideEl = allSlides[topicData.startIndex + i];
                 slideEl.style.display = 'flex';
             }
 
-            // تفعيل السلايد الحالية
+            // تفعيل السلايد المطلوبة
             allSlides[index].classList.add('active');
         }
 
