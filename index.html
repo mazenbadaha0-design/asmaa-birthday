@@ -708,6 +708,12 @@
             <p>May this year bring you endless happiness, beautiful memories, and all the love your heart deserves.</p>
             <p style="font-weight: bold; color: #f5576c; font-size: 22px; margin-top: 30px;">With all my love, forever yours ❤️</p>
         </div>
+
+        <!-- background music for birthday page -->
+        <audio id="birthdayMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <script>
@@ -742,7 +748,6 @@
             }
         });
 
-        // إيقاف كل الفيديوهات في الصفحة
         function stopAllVideos() {
             const videos = document.querySelectorAll('video');
             videos.forEach(v => v.pause());
@@ -750,6 +755,13 @@
 
         function showPage(pageId) {
             stopAllVideos();
+
+            // stop birthday music when leaving birthday page
+            const music = document.getElementById('birthdayMusic');
+            if (music) {
+                music.pause();
+                music.currentTime = 0;
+            }
 
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -789,9 +801,16 @@
         function goToBirthday() {
             showPage('birthdayPage');
             createConfetti();
+
+            const music = document.getElementById('birthdayMusic');
+            if (music) {
+                music.volume = 0.4;
+                music.play().catch(() => {
+                    // autoplay may be blocked; user can tap play if needed
+                });
+            }
         }
 
-        // تشغيل الفيديو فقط في السلايد الظاهرة
         function showTopicSlide(index) {
             const allSlides = document.querySelectorAll('.topic-slide');
 
