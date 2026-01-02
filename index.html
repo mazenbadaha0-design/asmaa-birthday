@@ -20,7 +20,7 @@
             align-items: center;
         }
 
-        /* PASSWORD PAGE */
+        /* PAGES */
         .page {
             display: none;
             width: 100%;
@@ -31,6 +31,7 @@
             display: flex;
         }
 
+        /* PASSWORD PAGE */
         #passwordPage {
             flex-direction: column;
             justify-content: center;
@@ -134,22 +135,20 @@
             font-size: 28px;
         }
 
-      .video-placeholder {
-    width: 100%;
-    max-width: 600px;
-    background: #f0f0f0;
-    border-radius: 10px;
-    margin: 0 auto 30px auto;
-    padding: 10px;
-}
+        .video-placeholder {
+            width: 100%;
+            max-width: 600px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 0 auto 30px auto;
+            padding: 10px;
+        }
 
-.video-placeholder video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-}
-
+        .video-placeholder video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
         }
 
         .video-text {
@@ -192,12 +191,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
 
         .slide h2 {
@@ -303,236 +298,51 @@
     </div>
 
     <!-- VIDEO PAGE -->
-<div id="videoPage" class="page">
-  <div class="video-container">
-    <h2>💕 Our Moment</h2>
+    <div id="videoPage" class="page">
+        <div class="video-container">
+            <h2>💕 Our Moment</h2>
 
-   <div class="video-placeholder">
-  <video id="ourVideo" controls autoplay playsinline>
-    <source src="ourvideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+            <div class="video-placeholder">
+                <video id="ourVideo" controls autoplay playsinline>
+                    <source src="ourvideo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
 
-    <p class="video-text">
-      This is where you can add your special video by replacing the placeholder with an embedded video link.
-    </p>
+            <p class="video-text">
+                This is where you can add your special video by replacing the placeholder with an embedded video link.
+            </p>
 
-    <button class="btn btn-journey" onclick="goToSlideshow()">Go to the Journey ➜</button>
-  </div>
-
-    </div>
-
-    <!-- SLIDESHOW PAGE -->
-    <!-- Topics Menu -->
-<div class="slide" id="topicsSlide">
-  <h2>Our Journey</h2>
-  <p>Select a moment to relive it.</p>
-
-  <div style="display:flex; flex-direction:column; gap:15px; margin-top:25px;">
-    <button class="btn btn-small" onclick="openTopic('firstDate')">1. Our First Date</button>
-    <button class="btn btn-small" onclick="openTopic('lateNightDrive')">2. Late Night Drive</button>
-    <button class="btn btn-small" onclick="openTopic('yourSupport')">3. Your Support</button>
-    <button class="btn btn-small" onclick="openTopic('sushiNight')">4. Sushi Night</button>
-    <button class="btn btn-small" onclick="openTopic('yourSmile')">5. Your Smile</button>
-  </div>
-
-  <div class="slide-indicator">
-    <span>Topics</span>
-  </div>
-</div>
-
-<!-- Our First Date - Text -->
-<div class="slide topic-firstDate">
-  <h2>💕 Our First Date</h2>
-  <p style="font-size:18px; margin:10px 0;">February 2, 2023</p>
-  <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
-
-  <div class="slide-controls">
-    <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
-    <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
-  </div>
-  <div class="slide-indicator"><span class="topicIndex">1</span> / <span class="topicTotal">3</span></div>
-</div>
-
-<!-- Our First Date - Video -->
-<div class="slide topic-firstDate">
-  <h2>💕 Our First Date – Video</h2>
-  <video width="100%" controls style="border-radius:10px; margin:20px 0;">
-    <source src="firstDate.mp4" type="video/mp4">
-  </video>
-
-  <div class="slide-controls">
-    <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-    <button class="btn btn-small" onclick="nextTopicSlide()">Next →</button>
-  </div>
-  <div class="slide-indicator"><span class="topicIndex">2</span> / <span class="topicTotal">3</span></div>
-</div>
-
-<!-- Our First Date - Photo -->
-<div class="slide topic-firstDate">
-  <h2>💕 Our First Date – Memory</h2>
-  <img src="firstDate.jpg" alt="Our first date" style="width:100%; max-width:500px; border-radius:10px; margin:20px 0;">
-
-  <div class="slide-controls">
-    <button class="btn btn-small" onclick="previousTopicSlide()">← Previous</button>
-    <button class="btn btn-small" onclick="backToTopics()">Back to topics</button>
-  </div>
-  <div class="slide-indicator"><span class="topicIndex">3</span> / <span class="topicTotal">3</span></div>
-</div>
-
-    </div>
-
-    <!-- BIRTHDAY PAGE -->
-    <div id="birthdayPage" class="page">
-        <div class="birthday-container">
-            <h1>🎉 Happy Birthday! 🎂</h1>
-            <p>To the most amazing person in my life,</p>
-            <p>Today is your special day, and I want you to know how much you mean to me. You bring joy, love, and light into my world every single day.</p>
-            <p>May this year bring you endless happiness, beautiful memories, and all the love your heart deserves.</p>
-            <p style="font-weight: bold; color: #f5576c; font-size: 22px; margin-top: 30px;">With all my love, forever yours ❤️</p>
+            <button class="btn btn-journey" onclick="goToSlideshow()">Go to the Journey ➜</button>
         </div>
     </div>
 
-    <script>
-        // PASSWORD
-        const correctPassword = "21012004"; // CHANGE THIS to your password!
+    <!-- SLIDESHOW PAGE -->
+    <div id="slideshowPage" class="page">
+        <!-- Topics Menu -->
+        <div class="slide active" id="topicsSlide">
+            <h2>Our Journey</h2>
+            <p>Select a moment to relive it.</p>
 
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            const errorMsg = document.getElementById('errorMsg');
+            <div style="display:flex; flex-direction:column; gap:15px; margin-top:25px;">
+                <button class="btn btn-small" onclick="openTopic('firstDate')">1. Our First Date</button>
+                <button class="btn btn-small" onclick="openTopic('lateNightDrive')">2. Late Night Drive</button>
+                <button class="btn btn-small" onclick="openTopic('yourSupport')">3. Your Support</button>
+                <button class="btn btn-small" onclick="openTopic('sushiNight')">4. Sushi Night</button>
+                <button class="btn btn-small" onclick="openTopic('yourSmile')">5. Your Smile</button>
+            </div>
 
-            if (input === correctPassword) {
-                errorMsg.style.display = 'none';
-                goToVideo();
-            } else {
-                errorMsg.style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-            }
-        }
+            <div class="slide-indicator">
+                <span>Topics</span>
+            </div>
+        </div>
 
-        // Allow Enter key to submit password
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
+        <!-- Our First Date - Text -->
+        <div class="slide topic-firstDate">
+            <h2>💕 Our First Date</h2>
+            <p style="font-size:18px; margin:10px 0;">February 2, 2023</p>
+            <p>That day, my heart knew it had found its forever. Every moment with you felt like a beautiful dream come true.</p>
 
-        // PAGE NAVIGATION
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function goToVideo() {
-            showPage('videoPage');
-        }
-
-        function goToSlideshow() {
-            showPage('slideshowPage');
-            updateSlideIndicators();
-        }
-
-        function goToBirthday() {
-            showPage('birthdayPage');
-            createConfetti();
-        }
-
-      // SLIDESHOW
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-}
-
-function nextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    showSlide(currentSlideIndex);
-    updateSlideIndicators();
-}
-
-function previousSlide() {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    showSlide(currentSlideIndex);
-    updateSlideIndicators();
-}
-
-function updateSlideIndicators() {
-    const indicators = document.querySelectorAll('#currentSlide');
-    indicators.forEach(indicator => {
-        indicator.textContent = currentSlideIndex + 1;
-    });
-}
-
-// TOPIC SUB-SLIDES
-let currentTopic = null;
-let currentTopicIndex = 0;
-
-function openTopic(topicName) {
-    currentTopic = topicName;
-    currentTopicIndex = 0;
-
-    slides.forEach(slide => slide.classList.remove('active'));
-
-    const topicSlides = document.querySelectorAll('.topic-' + topicName);
-    if (topicSlides.length > 0) {
-        topicSlides[0].classList.add('active');
-    }
-}
-
-function backToTopics() {
-    slides.forEach(slide => slide.classList.remove('active'));
-    document.getElementById('topicsSlide').classList.add('active');
-    currentTopic = null;
-}
-
-function showTopicSlide() {
-    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-    topicSlides.forEach(slide => slide.classList.remove('active'));
-    topicSlides[currentTopicIndex].classList.add('active');
-}
-
-function nextTopicSlide() {
-    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-    currentTopicIndex = Math.min(currentTopicIndex + 1, topicSlides.length - 1);
-    showTopicSlide();
-}
-
-function previousTopicSlide() {
-    const topicSlides = document.querySelectorAll('.topic-' + currentTopic);
-    currentTopicIndex = Math.max(currentTopicIndex - 1, 0);
-    showTopicSlide();
-}
-
-// CONFETTI ANIMATION
-function createConfetti() {
-    for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + '%';
-        confetti.style.top = '-10px';
-        confetti.style.background = ['#f5576c', '#f093fb', '#667eea', '#ffd700'][Math.floor(Math.random() * 4)];
-        confetti.style.animation = `fall ${2 + Math.random() * 1}s linear`;
-        document.body.appendChild(confetti);
-
-        setTimeout(() => confetti.remove(), 3000);
-    }
-}
-
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
+            <div class="slide-controls">
+                <button class="btn btn-small" onclick="backToTopics()">← Back to topics</button>
+                <button class="btn btn-small" onclick="
